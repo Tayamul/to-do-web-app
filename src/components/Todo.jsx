@@ -13,9 +13,10 @@ const Todo = () => {
 
   return (
     <div className='todo-container'>
+        <h3>Easily manage your daily tasks on the go</h3>
         <form>
-        <TextField id="standard-basic" label="Add a new task" variant="standard" />
-        <Button ><AddIcon/></Button>
+        <TextField id="standard-basic" label="Add a new task" variant="standard"/>
+        <button variant='outlined'><AddIcon/></button>
         </form>
     </div>
   )
