@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {auth} from '../firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/material'
@@ -6,6 +6,12 @@ import { Avatar, Button, Grid, Paper, TextField, Typography } from '@mui/materia
 const Signup = () => {
     const paperStyle={width: 300, margin:"60px auto", padding:"35px 20px"}
     const textStyle={mt:2}
+
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
   return (
     <Grid>
       <Paper elevation={10} sx={paperStyle}>
@@ -21,6 +27,8 @@ const Signup = () => {
           fullWidth
           autoComplete='off'
           required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
           label='Email'
@@ -30,6 +38,8 @@ const Signup = () => {
           fullWidth
           autoComplete='off'
           required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
           label='Password'
@@ -39,6 +49,8 @@ const Signup = () => {
           fullWidth
           autoComplete='off'
           required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           />
           <TextField
           label='Confirm Password'
@@ -48,6 +60,8 @@ const Signup = () => {
           fullWidth
           autoComplete='off'
           required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <Button
           variant='contained'
