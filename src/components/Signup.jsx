@@ -30,9 +30,14 @@ const Signup = () => {
       setDoc(doc(db, 'users', username), {
         Username: username,
         Email: email,
-        Password: password,
         UserId: userId
       })
+      setDoc(doc(db, 'users-data', username), {
+        Username: username,
+        Email: email,
+        UserId: userId
+      })
+
       alert('Sign up successful')
     })
     .catch(err => alert(err.message))
