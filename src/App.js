@@ -2,11 +2,13 @@ import React from 'react'
 import { AuthProvider } from "./Auth";
 import { Routes, Route } from 'react-router-dom';
 import Signup from './components/Signup';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   return (
     <AuthProvider>
     <div className="App">
+      <CssBaseline/>
       <Routes>
         <Route path='/signup' element={<Signup/>}/>
       </Routes>
