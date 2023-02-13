@@ -162,6 +162,7 @@ export default function Sidebar() {
                 <ListItemText primary="Profile" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+            <Link to='/tasks'>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -182,6 +183,7 @@ export default function Sidebar() {
                 <ListItemText primary="Tasks" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+            </Link>
             <Link to='/login'>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
