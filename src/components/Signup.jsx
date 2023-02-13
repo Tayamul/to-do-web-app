@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 const Signup = () => {
-  const paperStyle = { width: 300, margin: "60px auto", padding: "35px 20px" };
+  const paperStyle = { width: 300, margin: "120px auto", padding: "35px 20px" };
   const textStyle = { mt: 2 };
 
   const [username, setUsername] = useState("");
