@@ -1,11 +1,14 @@
 import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const Login = () => {
 
     const paperStyle = {width:300, margin:"120px auto", padding:"35px 20px"}
     const textStyle = {mt:2}
+
+    const [loginEmail, setLoginEmail] = useState('')
+    const [loginPassword, setLoginPassword] = useState('')
 
     const login = () => {
         
@@ -28,6 +31,8 @@ const Login = () => {
                     type='email'
                     fullWidth
                     sx={textStyle}
+                    value={loginEmail}
+                    onChange={(e)=>{setLoginEmail(e.target.value)}}
                     />
                      <TextField
                     label='Password'
@@ -35,6 +40,8 @@ const Login = () => {
                     type='password'
                     fullWidth
                     sx={textStyle}
+                    value={loginPassword}
+                    onChange={(e)=>{setLoginPassword(e.target.value)}}
                     />
                     <Button
                     type='submit'
