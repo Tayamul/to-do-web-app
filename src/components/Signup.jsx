@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {setDoc, doc, addDoc, collection} from 'firebase/firestore'
+import {setDoc, doc, getDoc} from 'firebase/firestore'
 import {
   Avatar,
   Button,
@@ -20,14 +20,22 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const signup = (e) => {
+  const signup = async (e) => {
     e.preventDefault()
+    
+    const docRef = doc(db, "users", username.toLowerCase());
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      alert("Username already taken!");
+      return
+    } 
 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log(userCredential)
       const userId = userCredential.user.uid
-      setDoc(doc(db, 'users', username), {
+      setDoc(doc(db, 'users', username.toLowerCase()), {
         UserId: userId
       })
       setDoc(doc(db, 'users-data', userId), {
@@ -38,7 +46,7 @@ const Signup = () => {
 
       alert('Sign up successful')
     })
-    .catch(err => alert(err.message))
+    .catch(err => alert("Email already exists!"))
 
     setUsername('')
     setEmail('')
