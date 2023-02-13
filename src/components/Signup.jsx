@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {setDoc, doc} from 'firebase/firestore'
+import {setDoc, doc, addDoc, collection} from 'firebase/firestore'
 import {
   Avatar,
   Button,
@@ -28,11 +28,9 @@ const Signup = () => {
       console.log(userCredential)
       const userId = userCredential.user.uid
       setDoc(doc(db, 'users', username), {
-        Username: username,
-        Email: email,
         UserId: userId
       })
-      setDoc(doc(db, 'users-data', username), {
+      setDoc(doc(db, 'users-data', userId), {
         Username: username,
         Email: email,
         UserId: userId
