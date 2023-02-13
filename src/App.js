@@ -5,6 +5,7 @@ import Signup from './components/Signup';
 import { CssBaseline } from '@mui/material';
 import Sidebar from './components/Sidebar';
 import Login from './components/Login';
+import Todo from './components/Todo';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+        <Route path='/tasks' element={<Todo/>}/>
       </Routes>
     </div>
     </AuthProvider>
