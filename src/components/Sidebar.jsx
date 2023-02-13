@@ -19,6 +19,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { Link } from 'react-router-dom';
 import {signOut} from 'firebase/auth'
 import { Button } from '@mui/material';
@@ -159,6 +160,26 @@ export default function Sidebar() {
                 <AccountCircleIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Profile" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                <TaskAltIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Tasks" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
             <Link to='/login'>
