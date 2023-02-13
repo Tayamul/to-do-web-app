@@ -1,6 +1,7 @@
 import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../firebaseConfig'
 
 const Login = () => {
 
@@ -11,7 +12,7 @@ const Login = () => {
     const [loginPassword, setLoginPassword] = useState('')
 
     const login = () => {
-        
+        signInWithEmailAndPassword()
     }
 
   return (
