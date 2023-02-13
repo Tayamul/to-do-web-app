@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import {setDoc, doc, getDoc} from 'firebase/firestore'
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import {
   Avatar,
   Button,
@@ -21,38 +21,44 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const signup = async (e) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     const docRef = doc(db, "users", username.toLowerCase());
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       alert("Username already taken!");
-      return
-    } 
+      return;
+    }
 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log(userCredential)
-      const userId = userCredential.user.uid
-      setDoc(doc(db, 'users', username.toLowerCase()), {
-        UserId: userId
-      })
-      setDoc(doc(db, 'users-data', userId), {
-        Username: username,
-        Email: email,
-        UserId: userId
-      })
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const userId = userCredential.user.uid;
 
-      alert('Sign up successful')
-    })
-    .catch(err => alert("Email already exists!"))
+      await Promise.all([
+        setDoc(doc(db, "users", username.toLowerCase()), {
+          UserId: userId,
+        }),
+        setDoc(doc(db, "users-data", userId), {
+          Username: username,
+          Email: email,
+          UserId: userId,
+        }),
+      ]);
+      alert("Sign up successful");
+    } catch (err) {
+      alert("Email already exists!");
+    }
 
-    setUsername('')
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
-  }
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+  };
 
   return (
     <Grid>
@@ -106,7 +112,7 @@ const Signup = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            <Button variant="contained" sx={textStyle} fullWidth type='submit'>
+            <Button variant="contained" sx={textStyle} fullWidth type="submit">
               Sign up
             </Button>
           </form>
