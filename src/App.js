@@ -7,7 +7,9 @@ function App() {
   return (
     <AuthProvider>
     <div className="App">
-      Hey
+      <Routes>
+        <Route path='/signup' element={<Signup/>}/>
+      </Routes>
     </div>
     </AuthProvider>
   );
