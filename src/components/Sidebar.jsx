@@ -169,6 +169,7 @@ export default function Sidebar() {
                 <ListItemText primary="Login" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+            <Link to='/signup'>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -189,6 +190,7 @@ export default function Sidebar() {
                 <ListItemText primary="Signup" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+            </Link>
         </List>
         <Divider />
         <List>
