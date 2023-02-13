@@ -19,6 +19,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
