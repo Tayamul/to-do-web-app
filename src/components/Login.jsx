@@ -1,10 +1,16 @@
 import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const Login = () => {
 
     const paperStyle = {width:300, margin:"120px auto", padding:"35px 20px"}
     const textStyle = {mt:2}
+
+    const login = () => {
+        
+    }
+
   return (
     <Grid>
         <Paper elevation={10} sx={paperStyle}>
@@ -15,7 +21,7 @@ const Login = () => {
                 <Typography variant='caption'>
                     Don't have an account? Sign up
                 </Typography>
-                <form>
+                <form onSubmit={login}>
                     <TextField
                     label='Email'
                     id='email'
