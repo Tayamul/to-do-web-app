@@ -14,9 +14,10 @@ const Login = () => {
     const login = () => {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then((userCredential) => {
-            
+            const user = userCredential.user
+            console.log(user)
         })
-        .catch(err => alert(err.message))
+        .catch(err => alert('Incorrect email or password'))
     }
 
   return (
@@ -29,7 +30,7 @@ const Login = () => {
                 <Typography variant='caption'>
                     Don't have an account? Sign up
                 </Typography>
-                <form onSubmit={login}>
+                <form>
                     <TextField
                     label='Email'
                     id='email'
@@ -51,10 +52,10 @@ const Login = () => {
                     autoComplete='off'
                     />
                     <Button
-                    type='submit'
                     variant='contained'
                     sx={textStyle}
                     fullWidth
+                    onClick={login}
                     >
                         Log in
                     </Button>
