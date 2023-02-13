@@ -162,7 +162,7 @@ export default function Sidebar() {
                 <ListItemText primary="Profile" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-            <Link to='/tasks'>
+            <Link to='/tasks' style={{textDecoration:"none", color: "black"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -184,7 +184,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
             </Link>
-            <Link to='/login'>
+            <Link to='/login' style={{textDecoration:"none", color: "black"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -206,7 +206,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
             </Link>
-            <Link to='/signup'>
+            <Link to='/signup' style={{textDecoration:"none", color: "black"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -231,8 +231,7 @@ export default function Sidebar() {
         </List>
         <Divider/>
         <List>
-          <Button onClick={logout}>
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem onClick={logout} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -252,7 +251,6 @@ export default function Sidebar() {
                 <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-            </Button>
         </List>
       </Drawer>
     </Box>
