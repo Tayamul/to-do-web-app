@@ -20,6 +20,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import { Link } from 'react-router-dom';
+import {signOut} from 'firebase/auth'
+import { Button } from '@mui/material';
+import {auth} from '../firebaseConfig'
 
 const drawerWidth = 150;
 
@@ -87,6 +90,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
+
+const logout = () => {
+  if(auth.currentUser) {
+    signOut(auth)
+    alert('User logged out')
+  } else {
+    alert('No user logged in')
+  }
+}
 
 export default function Sidebar() {
   const theme = useTheme();
@@ -194,8 +206,9 @@ export default function Sidebar() {
             </ListItem>
             </Link>
         </List>
-        <Divider />
+        <Divider/>
         <List>
+          <Button onClick={logout}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -216,6 +229,7 @@ export default function Sidebar() {
                 <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+            </Button>
         </List>
       </Drawer>
     </Box>
