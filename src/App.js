@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import { CssBaseline } from '@mui/material';
 import Sidebar from './components/Sidebar';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <CssBaseline/>
       <Sidebar/>
       <Routes>
+        <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
       </Routes>
     </div>
