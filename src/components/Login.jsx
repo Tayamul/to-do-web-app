@@ -12,7 +12,11 @@ const Login = () => {
     const [loginPassword, setLoginPassword] = useState('')
 
     const login = () => {
-        signInWithEmailAndPassword()
+        signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+        .then((userCredential) => {
+            
+        })
+        .catch(err => alert(err.message))
     }
 
   return (
@@ -34,6 +38,7 @@ const Login = () => {
                     sx={textStyle}
                     value={loginEmail}
                     onChange={(e)=>{setLoginEmail(e.target.value)}}
+                    autoComplete='off'
                     />
                      <TextField
                     label='Password'
@@ -43,6 +48,7 @@ const Login = () => {
                     sx={textStyle}
                     value={loginPassword}
                     onChange={(e)=>{setLoginPassword(e.target.value)}}
+                    autoComplete='off'
                     />
                     <Button
                     type='submit'
