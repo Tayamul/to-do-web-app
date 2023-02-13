@@ -21,7 +21,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import { Link } from 'react-router-dom';
 
-const drawerWidth = 240;
+const drawerWidth = 150;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
