@@ -5,6 +5,7 @@ import { addDoc, collection, getDocs, onSnapshot, query } from "firebase/firesto
 import { Button, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../Auth";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Todo = () => {
   const { currentUser } = useContext(AuthContext);
@@ -62,7 +63,14 @@ const Todo = () => {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.text}>{todo.text}</li>
+          <li key={todo.text} className={todo.completed ? 'todo-completed' : 'todo-li'}>
+            <div className="todo-row">
+              <input type='checkbox'/>
+              <p>{todo.text}</p>
+            </div>
+            <button><DeleteOutlineIcon/></button>
+          </li>
+          
         ))}
       </ul>
     </div>
