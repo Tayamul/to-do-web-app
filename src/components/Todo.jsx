@@ -4,9 +4,10 @@ import { db } from "../firebaseConfig";
 import {
   addDoc,
   collection,
-  getDocs,
+  doc,
   onSnapshot,
   query,
+  updateDoc,
 } from "firebase/firestore";
 import { Button, ListItemButton, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
@@ -49,6 +50,11 @@ const Todo = () => {
   }, []);
 
   // Update data in firebase
+  const toggleComplete = async (todo) => {
+    await updateDoc(doc(db, `users-data/${userId}/todos`, todo.id), {
+      completed: !todo.completed,
+    });
+  };
 
   return (
     <div className="todo-container">
@@ -76,9 +82,15 @@ const Todo = () => {
             className={todo.completed ? "todo-completed" : "todo-li"}
           >
             <div className="todo-row">
-              <input onChange={toggleComplete(todo.id)} type="checkbox" checked={todo.completed ? "checked" : ""}/>
-              <p className={todo.completed ? "text-completed" : "text"}
-              onClick={toggleComplete(todo.id)}>
+              <input
+                onChange={()=>{toggleComplete(todo)}}
+                type="checkbox"
+                checked={todo.completed ? "checked" : ""}
+              />
+              <p
+                onClick={()=>{toggleComplete(todo)}}
+                className={todo.completed ? "text-completed" : "text"}
+              >
                 {todo.text.charAt(0).toUpperCase() + todo.text.slice(1)}
               </p>
             </div>
