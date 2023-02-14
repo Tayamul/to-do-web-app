@@ -34,10 +34,11 @@ const Todo = () => {
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = []
       querySnapshot.forEach((doc) => {
-        console.log({...doc.data(), id: doc.id})
+        todosArr.push({...doc.data(), id: doc.id})
       })
-
+      setTodos(todosArr)
     })
+    return () => unsubscribe()
   }, [])
 
   return (
@@ -59,6 +60,11 @@ const Todo = () => {
           <AddIcon size={30} />
         </button>
       </form>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.text}>{todo.text}</li>
+        ))}
+      </ul>
     </div>
   );
 };
