@@ -1,17 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./todo.css";
 import { db } from "../firebaseConfig";
-import { addDoc, collection, getDocs, onSnapshot, query } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  onSnapshot,
+  query,
+} from "firebase/firestore";
 import { Button, ListItemButton, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../Auth";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 const Todo = () => {
   const { currentUser } = useContext(AuthContext);
   const userId = currentUser.uid;
 
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
   // Create data in firebase
@@ -31,16 +37,18 @@ const Todo = () => {
 
   // Read data from firebase
   useEffect(() => {
-    const q = query(collection(db, `users-data/${userId}/todos`))
+    const q = query(collection(db, `users-data/${userId}/todos`));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let todosArr = []
+      let todosArr = [];
       querySnapshot.forEach((doc) => {
-        todosArr.push({...doc.data(), id: doc.id})
-      })
-      setTodos(todosArr)
-    })
-    return () => unsubscribe()
-  }, [])
+        todosArr.push({ ...doc.data(), id: doc.id });
+      });
+      setTodos(todosArr);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Update data in firebase
 
   return (
     <div className="todo-container">
@@ -63,14 +71,21 @@ const Todo = () => {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.text} className={todo.completed ? 'todo-completed' : 'todo-li'}>
+          <li
+            key={todo.text}
+            className={todo.completed ? "todo-completed" : "todo-li"}
+          >
             <div className="todo-row">
-              <input type='checkbox'/>
-              <p className={todo.completed ? 'text-completed' : 'text'}>{todo.text.charAt(0).toUpperCase() + todo.text.slice(1)}</p>
+              <input onChange={toggleComplete(todo.id)} type="checkbox" checked={todo.completed ? "checked" : ""}/>
+              <p className={todo.completed ? "text-completed" : "text"}
+              onClick={toggleComplete(todo.id)}>
+                {todo.text.charAt(0).toUpperCase() + todo.text.slice(1)}
+              </p>
             </div>
-            <button className="delete-btn"><DeleteOutlineIcon/></button>
+            <button className="delete-btn">
+              <DeleteOutlineIcon />
+            </button>
           </li>
-          
         ))}
       </ul>
     </div>
