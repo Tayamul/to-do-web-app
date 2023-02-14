@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./todo.css";
 import { db } from "../firebaseConfig";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs, onSnapshot, query } from "firebase/firestore";
 import { Button, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../Auth";
@@ -10,6 +10,7 @@ const Todo = () => {
   const { currentUser } = useContext(AuthContext);
   const userId = currentUser.uid;
 
+  const [todos, setTodos] = useState([])
   const [input, setInput] = useState("");
 
   // Create data in firebase
@@ -29,7 +30,14 @@ const Todo = () => {
 
   // Read data from firebase
   useEffect(() => {
-    
+    const q = query(collection(db, `users-data/${userId}/todos`))
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let todosArr = []
+      querySnapshot.forEach((doc) => {
+        console.log({...doc.data(), id: doc.id})
+      })
+
+    })
   }, [])
 
   return (
