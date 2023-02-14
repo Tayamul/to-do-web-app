@@ -4,12 +4,13 @@ import { db } from "../firebaseConfig";
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   onSnapshot,
   query,
   updateDoc,
 } from "firebase/firestore";
-import { Button, ListItemButton, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../Auth";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -56,6 +57,11 @@ const Todo = () => {
     });
   };
 
+  // Delete data from firebase
+  const deleteList = async (id) => {
+    await deleteDoc(doc(db, `users-data/${userId}/todos`, id))
+  }
+
   return (
     <div className="todo-container">
       <h3>Easily manage your daily tasks on the go</h3>
@@ -94,12 +100,13 @@ const Todo = () => {
                 {todo.text.charAt(0).toUpperCase() + todo.text.slice(1)}
               </p>
             </div>
-            <button className="delete-btn">
+            <button className="delete-btn" onClick={() => {deleteList(todo.id)}}>
               <DeleteOutlineIcon />
             </button>
           </li>
         ))}
       </ul>
+      <p>{todos.length < 1 ? 'Feeling lazy today?' : `You have ${todos.length} tasks to do`}</p>
     </div>
   );
 };
