@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./todo.css";
 import { db } from "../firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
@@ -26,6 +26,11 @@ const Todo = () => {
     });
     setInput("");
   };
+
+  // Read data from firebase
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <div className="todo-container">
