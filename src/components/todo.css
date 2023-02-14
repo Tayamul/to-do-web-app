@@ -31,6 +31,7 @@ h3 {
     padding: 10px;
     margin: 20px;
     background-color: #675c61aa;
+    margin-right:60px;
 }
 
 .todo-li {
@@ -39,6 +40,7 @@ h3 {
     padding: 10px;
     margin: 20px;
     background-color: #a09198aa;
+    margin-right:60px;
 }
 
 .todo-row {
