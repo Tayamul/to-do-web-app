@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./todo.css";
 import { db } from "../firebaseConfig";
 import { addDoc, collection, getDocs, onSnapshot, query } from "firebase/firestore";
-import { Button, TextField } from "@mui/material";
+import { Button, ListItemButton, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../Auth";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -66,9 +66,9 @@ const Todo = () => {
           <li key={todo.text} className={todo.completed ? 'todo-completed' : 'todo-li'}>
             <div className="todo-row">
               <input type='checkbox'/>
-              <p>{todo.text}</p>
+              <p className={todo.completed ? 'text-completed' : 'text'}>{todo.text.charAt(0).toUpperCase() + todo.text.slice(1)}</p>
             </div>
-            <button><DeleteOutlineIcon/></button>
+            <ListItemButton><DeleteOutlineIcon/></ListItemButton>
           </li>
           
         ))}
