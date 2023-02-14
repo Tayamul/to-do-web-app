@@ -17,7 +17,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 const Todo = () => {
   const { currentUser } = useContext(AuthContext);
-  const userId = currentUser.uid;
+  const userId = currentUser ? currentUser.uid : "";
 
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
