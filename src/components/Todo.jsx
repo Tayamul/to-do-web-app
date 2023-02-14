@@ -68,7 +68,7 @@ const Todo = () => {
               <input type='checkbox'/>
               <p className={todo.completed ? 'text-completed' : 'text'}>{todo.text.charAt(0).toUpperCase() + todo.text.slice(1)}</p>
             </div>
-            <ListItemButton><DeleteOutlineIcon/></ListItemButton>
+            <button className="delete-btn"><DeleteOutlineIcon/></button>
           </li>
           
         ))}
