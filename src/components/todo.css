@@ -22,3 +22,24 @@ h3 {
 .todo-btn {
     margin-left: 10px;
 }
+
+/* CSS for containers full of lists */
+
+.todo-completed {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+}
+
+.todo-li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+    background-color: #a09198aa;
+}
+
+.todo-row {
+    display: flex;
+}
