@@ -145,9 +145,12 @@ const Signup = () => {
                 )
               }}
             />
-            <Button variant="contained" sx={textStyle} fullWidth type="submit">
+            {password === confirmPassword ?  <Button variant="contained" sx={textStyle} fullWidth type="submit">
               Sign up
-            </Button>
+            </Button> :  <Button variant="contained" sx={textStyle} fullWidth type="submit" disabled>
+              Sign up
+            </Button>}
+           
           </form>
         </Grid>
       </Paper>
