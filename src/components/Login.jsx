@@ -47,6 +47,7 @@ const Login = () => {
                     value={loginEmail}
                     onChange={(e)=>{setLoginEmail(e.target.value)}}
                     autoComplete='off'
+                    required
                     />
                      <TextField
                     label='Password'
@@ -57,6 +58,7 @@ const Login = () => {
                     value={loginPassword}
                     onChange={(e)=>{setLoginPassword(e.target.value)}}
                     autoComplete='off'
+                    required
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
