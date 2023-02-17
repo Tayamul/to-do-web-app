@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -24,6 +24,7 @@ import { Link } from 'react-router-dom';
 import {signOut} from 'firebase/auth'
 import { Button } from '@mui/material';
 import {auth} from '../firebaseConfig'
+import { AuthContext } from '../Auth';
 
 const drawerWidth = 150;
 
@@ -104,6 +105,8 @@ const logout = () => {
 export default function Sidebar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { currentUser } = useContext(AuthContext)
+console.log(currentUser, "SIDEBAR")
 
   const handleDrawerOpen = () => {
     setOpen(true);
