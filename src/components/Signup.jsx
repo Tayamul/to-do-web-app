@@ -6,10 +6,14 @@ import {
   Avatar,
   Button,
   Grid,
+  IconButton,
+  InputAdornment,
   Paper,
   TextField,
   Typography,
 } from "@mui/material";
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 const Signup = () => {
   const paperStyle = { width: 300, margin: "120px auto", padding: "35px 20px" };
@@ -103,6 +107,15 @@ const Signup = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton aria-label='toggle password' edge="end" >
+                      
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
             />
             <TextField
               label="Confirm Password"
