@@ -45,7 +45,7 @@ const Login = () => {
                      <TextField
                     label='Password'
                     id='password'
-                    type='password'
+                    type={passwordVisible ? "" : "password"}
                     fullWidth
                     sx={textStyle}
                     value={loginPassword}
