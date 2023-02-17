@@ -106,7 +106,6 @@ export default function Sidebar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const { currentUser } = useContext(AuthContext)
-console.log(currentUser, "SIDEBAR")
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -209,7 +208,7 @@ console.log(currentUser, "SIDEBAR")
               </ListItemButton>
             </ListItem>
             </Link>
-            <Link to='/signup' style={{textDecoration:"none", color: "black"}}>
+            {currentUser ? "" : <Link to='/signup' style={{textDecoration:"none", color: "black"}}>
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -230,7 +229,8 @@ console.log(currentUser, "SIDEBAR")
                 <ListItemText primary="Signup" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-            </Link>
+            </Link> }
+            
         </List>
         <Divider/>
         <List>
