@@ -56,14 +56,14 @@ const Login = () => {
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
-                                <IconButton position="end">
+                                <IconButton aria-label='toggle password' edge="end" onClick={togglePassword}>
                                     <VisibilityOutlinedIcon/>
                                 </IconButton>
                             </InputAdornment>
                         )
                     }}
                     />
-
+                    
                     <Button
                     variant='contained'
                     sx={textStyle}
