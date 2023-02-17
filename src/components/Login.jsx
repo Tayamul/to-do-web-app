@@ -14,6 +14,7 @@ const Login = () => {
     const [loginEmail, setLoginEmail] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
     const [passwordVisible, setPasswordVisible] = useState(false)
+    const navigate = useNavigate()
 
     const login = () => {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
@@ -21,6 +22,7 @@ const Login = () => {
             const user = userCredential.user
             console.log(user)
             alert('Successfully Logged in!')
+            navigate('/')
         })
         .catch(err => alert('Incorrect email or password'))
     }
