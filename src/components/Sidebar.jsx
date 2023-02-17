@@ -20,7 +20,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {signOut} from 'firebase/auth'
 import { Button } from '@mui/material';
 import {auth} from '../firebaseConfig'
@@ -97,6 +97,7 @@ const logout = () => {
   if(auth.currentUser) {
     signOut(auth)
     alert('User logged out')
+
   } else {
     alert('No user logged in')
   }
