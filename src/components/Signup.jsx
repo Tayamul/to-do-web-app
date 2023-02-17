@@ -96,7 +96,7 @@ const Signup = () => {
             <TextField
               label="Password"
               id="password"
-              type="password"
+              type={passwordVisible ? "text" : "password"}
               sx={textStyle}
               fullWidth
               autoComplete="off"
@@ -107,7 +107,7 @@ const Signup = () => {
             <TextField
               label="Confirm Password"
               id="confirmPassword"
-              type="password"
+              type={confirmPasswordVisible ? "text" : "password"}
               sx={textStyle}
               fullWidth
               autoComplete="off"
