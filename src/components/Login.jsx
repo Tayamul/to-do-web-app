@@ -10,6 +10,7 @@ const Login = () => {
 
     const [loginEmail, setLoginEmail] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
+    const [passwordVisible, setPasswordVisible] = useState(false)
 
     const login = () => {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
