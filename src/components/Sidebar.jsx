@@ -233,7 +233,7 @@ export default function Sidebar() {
             
         </List>
         <Divider/>
-        <List>
+        {currentUser ? <List>
             <ListItem onClick={logout} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -254,7 +254,8 @@ export default function Sidebar() {
                 <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-        </List>
+        </List> : ""}
+        
       </Drawer>
     </Box>
   );
