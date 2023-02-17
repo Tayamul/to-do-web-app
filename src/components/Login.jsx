@@ -1,4 +1,4 @@
-import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Button, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../firebaseConfig'
@@ -53,7 +53,17 @@ const Login = () => {
                     value={loginPassword}
                     onChange={(e)=>{setLoginPassword(e.target.value)}}
                     autoComplete='off'
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton position="end">
+                                    <VisibilityOutlinedIcon/>
+                                </IconButton>
+                            </InputAdornment>
+                        )
+                    }}
                     />
+
                     <Button
                     variant='contained'
                     sx={textStyle}
