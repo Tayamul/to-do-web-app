@@ -2,6 +2,8 @@ import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../firebaseConfig'
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 const Login = () => {
 
