@@ -23,6 +23,10 @@ const Login = () => {
         .catch(err => alert('Incorrect email or password'))
     }
 
+    const togglePassword = () => {
+        setPasswordVisible(!passwordVisible)
+    }
+
   return (
     <Grid>
         <Paper elevation={10} sx={paperStyle}>
@@ -47,7 +51,7 @@ const Login = () => {
                      <TextField
                     label='Password'
                     id='password'
-                    type={passwordVisible ? "" : "password"}
+                    type={passwordVisible ? "type" : "password"}
                     fullWidth
                     sx={textStyle}
                     value={loginPassword}
@@ -57,7 +61,7 @@ const Login = () => {
                         endAdornment: (
                             <InputAdornment position="end">
                                 <IconButton aria-label='toggle password' edge="end" onClick={togglePassword}>
-                                    <VisibilityOutlinedIcon/>
+                                    {passwordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
                                 </IconButton>
                             </InputAdornment>
                         )
