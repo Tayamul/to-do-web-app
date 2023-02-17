@@ -111,7 +111,7 @@ const Signup = () => {
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton aria-label='toggle password' edge="end" >
-                      
+                      {passwordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
                     </IconButton>
                   </InputAdornment>
                 )
@@ -127,6 +127,15 @@ const Signup = () => {
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton aria-label='toggle confirm-password' edge="end" >
+                      {confirmPasswordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
             />
             <Button variant="contained" sx={textStyle} fullWidth type="submit">
               Sign up
