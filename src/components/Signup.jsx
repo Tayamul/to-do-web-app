@@ -27,6 +27,14 @@ const Signup = () => {
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false)
 
+  const togglePassword = () => {
+    setPasswordVisible(!passwordVisible)
+  }
+
+  const toggleConfirmPassword = () => {
+    setConfirmPasswordVisible(!confirmPasswordVisible)
+  }
+
   const signup = async (e) => {
     e.preventDefault();
 
@@ -110,7 +118,7 @@ const Signup = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton aria-label='toggle password' edge="end" >
+                    <IconButton aria-label='toggle password' edge="end" onClick={togglePassword}>
                       {passwordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
                     </IconButton>
                   </InputAdornment>
@@ -130,7 +138,7 @@ const Signup = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton aria-label='toggle confirm-password' edge="end" >
+                    <IconButton aria-label='toggle confirm-password' edge="end" onClick={toggleConfirmPassword}>
                       {confirmPasswordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
                     </IconButton>
                   </InputAdornment>
