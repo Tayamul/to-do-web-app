@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebaseConfig";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import {
   Avatar,
@@ -57,6 +57,10 @@ const Signup = () => {
       await Promise.all([
         setDoc(doc(db, "users", username.toLowerCase()), {
           UserId: userId,
+        }),
+        updateProfile(auth.currentUser, {
+          displayName: username,
+          photoURL: `https://api.multiavatar.com/Binx${username}.svg`
         }),
         setDoc(doc(db, "users-data", userId), {
           Username: username,
