@@ -150,6 +150,7 @@ export default function Sidebar() {
         </DrawerHeader>
         <Divider />
         <List>
+          <Link to='/profile' style={{ textDecoration: "none", color: "black" }}>
           <ListItem disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={{
@@ -170,6 +171,7 @@ export default function Sidebar() {
               <ListItemText primary="Profile" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
+          </Link>
           <Link to="/tasks" style={{ textDecoration: "none", color: "black" }}>
             <ListItem disablePadding sx={{ display: "block" }}>
               <ListItemButton
