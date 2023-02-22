@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Todo from './components/Todo';
 import LandingPage from './components/LandingPage';
 import PrivateRoutes from './components/PrivateRoutes';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route element={<PrivateRoutes />} >
             <Route element={<Todo />} path='/tasks' />
+            <Route element={<Profile />} path='/profile' />
         </Route>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/login' element={<Login/>}/>
