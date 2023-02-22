@@ -192,9 +192,6 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
           </Link>
-          {currentUser ? (
-            ""
-          ) : (
             <Link
               to="/login"
               style={{ textDecoration: "none", color: "black" }}
@@ -223,10 +220,6 @@ export default function Sidebar() {
                 </ListItemButton>
               </ListItem>
             </Link>
-          )}
-          {currentUser ? (
-            ""
-          ) : (
             <Link
               to="/signup"
               style={{ textDecoration: "none", color: "black" }}
@@ -255,10 +248,8 @@ export default function Sidebar() {
                 </ListItemButton>
               </ListItem>
             </Link>
-          )}
         </List>
         <Divider />
-        {currentUser && (
           <List>
             <ListItem onClick={logout} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -281,7 +272,6 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
           </List>
-        )}
       </Drawer>
     </Box>
   );
