@@ -20,7 +20,6 @@ const Login = () => {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         .then((userCredential) => {
             const user = userCredential.user
-            console.log(user)
             alert('Successfully Logged in!')
             navigate('/')
         })

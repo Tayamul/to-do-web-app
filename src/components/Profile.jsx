@@ -4,7 +4,7 @@ import "./profile.css";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
+  
   return (
     <section className="profile-container">
       <img
