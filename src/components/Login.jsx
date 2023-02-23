@@ -8,7 +8,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 
 const Login = () => {
 
-    const paperStyle = {width:300, margin:"120px auto", padding:"35px 20px"}
+    const paperStyle = {width: 240, margin: "120px auto 0 70px", padding:"35px 20px"}
     const textStyle = {mt:2}
 
     const [loginEmail, setLoginEmail] = useState('')
@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <Grid>
-        <Paper elevation={10} sx={paperStyle}>
+        <Paper elevation={10} sx={paperStyle} >
             <Grid align='center'>
                 <Typography variant='h5'>
                     Log in

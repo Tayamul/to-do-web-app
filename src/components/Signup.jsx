@@ -16,7 +16,7 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 const Signup = () => {
-  const paperStyle = { width: 300, margin: "120px auto", padding: "35px 20px" };
+  const paperStyle = { width: 240, margin: "120px auto 0 70px", padding: "35px 20px" };
   const textStyle = { mt: 2 };
 
   const [username, setUsername] = useState("");
