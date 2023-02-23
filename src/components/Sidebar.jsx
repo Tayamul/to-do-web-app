@@ -195,7 +195,7 @@ export default function Sidebar() {
               </ListItemButton>
             </ListItem>
           </Link>
-            <Link
+          {currentUser ? "" : <Link
               to="/login"
               style={{ textDecoration: "none", color: "black" }}
             >
@@ -222,8 +222,9 @@ export default function Sidebar() {
                   />
                 </ListItemButton>
               </ListItem>
-            </Link>
-            <Link
+            </Link> }
+            
+            {currentUser ? "" : <Link
               to="/signup"
               style={{ textDecoration: "none", color: "black" }}
             >
@@ -250,10 +251,11 @@ export default function Sidebar() {
                   />
                 </ListItemButton>
               </ListItem>
-            </Link>
+            </Link> }
+            
         </List>
         <Divider />
-          <List>
+          {currentUser && <List>
             <ListItem onClick={logout} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
@@ -274,7 +276,7 @@ export default function Sidebar() {
                 <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
-          </List>
+          </List>}
       </Drawer>
     </Box>
   );
