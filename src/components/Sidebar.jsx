@@ -115,6 +115,7 @@ export default function Sidebar() {
     } else {
       alert("No user logged in");
     }
+    window.location.reload()
   };
 
   return (
