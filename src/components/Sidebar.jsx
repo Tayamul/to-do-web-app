@@ -25,6 +25,7 @@ import { signOut } from "firebase/auth";
 import { Button } from "@mui/material";
 import { auth } from "../firebaseConfig";
 import { AuthContext } from "../Auth";
+import FoundationOutlinedIcon from '@mui/icons-material/FoundationOutlined';
 
 const drawerWidth = 150;
 
