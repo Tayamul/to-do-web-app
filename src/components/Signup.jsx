@@ -14,10 +14,12 @@ import {
 } from "@mui/material";
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const paperStyle = { width: 240, margin: "120px auto 0 70px", padding: "35px 20px" };
   const textStyle = { mt: 2 };
+  const navigate = useNavigate()
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -46,32 +48,57 @@ const Signup = () => {
       return;
     }
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const userId = userCredential.user.uid;
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const userId = userCredential.user.uid
 
-      await Promise.all([
-        setDoc(doc(db, "users", username.toLowerCase()), {
-          UserId: userId,
-        }),
-        updateProfile(auth.currentUser, {
-          displayName: username,
-          photoURL: `https://api.multiavatar.com/Binx${username}.svg`
-        }),
-        setDoc(doc(db, "users-data", userId), {
-          Username: username,
-          Email: email,
-          UserId: userId,
-        }),
-      ]);
-      alert("Sign up successful");
-    } catch (err) {
-      alert("Email already exists!");
-    }
+      setDoc(doc(db, 'users', username.toLowerCase()), {
+        UserId: userId
+      })
+
+      updateProfile(auth.currentUser, {
+        displayName: username,
+        photoURL: `https://api.multiavatar.com/Binx${username}.svg`
+      })
+
+      setDoc(doc(db, `users-data`, userId), {
+        Username: username,
+        Email: email,
+        UserId: userId
+      })
+
+      alert('Sign up successful!')
+      navigate('/')
+    })
+    .catch(err => alert('Email already exists!'))
+
+    // try {
+    //   const userCredential = await createUserWithEmailAndPassword(
+    //     auth,
+    //     email,
+    //     password
+    //   );
+    //   const userId = userCredential.user.uid;
+
+    //   await Promise.all([
+    //     setDoc(doc(db, "users", username.toLowerCase()), {
+    //       UserId: userId,
+    //     }),
+    //     updateProfile(auth.currentUser, {
+    //       displayName: username,
+    //       photoURL: `https://api.multiavatar.com/Binx${username}.svg`
+    //     }),
+    //     setDoc(doc(db, "users-data", userId), {
+    //       Username: username,
+    //       Email: email,
+    //       UserId: userId,
+    //     }),
+
+    //   ]);
+    //   alert("Sign up successful");
+    // } catch (err) {
+    //   alert("Email already exists!");
+    // }
 
     setUsername("");
     setEmail("");
