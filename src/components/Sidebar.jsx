@@ -152,6 +152,28 @@ export default function Sidebar() {
         </DrawerHeader>
         <Divider />
         <List>
+        <Link to='/' style={{ textDecoration: "none", color: "black" }}>
+          <ListItem disablePadding sx={{ display: "block" }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                <FoundationOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          </Link>
           <Link to='/profile' style={{ textDecoration: "none", color: "black" }}>
           <ListItem disablePadding sx={{ display: "block" }}>
             <ListItemButton
