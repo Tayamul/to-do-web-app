@@ -1,6 +1,6 @@
 import { Button, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../firebaseConfig'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
@@ -38,7 +38,7 @@ const Login = () => {
                     Log in
                 </Typography>
                 <Typography variant='caption'>
-                    Don't have an account? Sign up
+                    Don't have an account? <Link to='/signup'>Sign up</Link>
                 </Typography>
                 <form>
                     <TextField
