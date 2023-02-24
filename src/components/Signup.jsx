@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const paperStyle = { width: 240, margin: "120px auto 0 70px", padding: "35px 20px" };
@@ -183,6 +183,9 @@ const Signup = () => {
             </Button>}
            
           </form>
+          <Typography variant='caption' sx={{pt:10}}>
+                    Already have an account? <Link to='/login'>Log in</Link>
+                </Typography>
         </Grid>
       </Paper>
     </Grid>
