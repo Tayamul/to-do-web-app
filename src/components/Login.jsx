@@ -5,6 +5,7 @@ import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../firebaseConfig'
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import './login.css'
 
 const Login = () => {
 
@@ -31,6 +32,45 @@ const Login = () => {
     }
 
   return (
+    <section className='login-container'>
+        <p className='login-text'>Log in</p>
+        <p className='login-text2'>Don't have an account? <Link to='/signup'>Sign up</Link></p>
+        <form className='login-form'>
+            <label htmlFor='email'>Email</label>
+            <input 
+            type="email"
+            id="email" 
+            value={loginEmail}
+            onChange={(e) => setLoginEmail(e.target.value)}
+            autoComplete='off'
+            required
+            />
+            <label htmlFor='password'>Password</label>
+            <input 
+            type={passwordVisible ? "password" : "text"}
+            id="password" 
+            value={loginPassword}
+            onChange={(e)=> setLoginPassword(e.target.value)}
+            autoComplete='off'
+            required
+            InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                        <IconButton aria-label='toggle password' edge="end" onClick={togglePassword}>
+                            {passwordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
+                        </IconButton>
+                    </InputAdornment>
+                )
+            }}
+            />
+            <button
+            className='login-btn'
+            onClick={login}>
+                Log in
+            </button>
+        </form>
+    </section>
+    /*
     <Grid>
         <Paper elevation={10} sx={paperStyle} >
             <Grid align='center'>
@@ -85,6 +125,7 @@ const Login = () => {
             </Grid>
         </Paper>
     </Grid>
+    */
   )
 }
 
