@@ -29,7 +29,7 @@
     font-size: 0.9rem;
 }
 
-.login-form input {
+div input {
     padding: 0.2rem;
     margin-top: 0.2rem;
     border: 1px solid #4e4545ba;
