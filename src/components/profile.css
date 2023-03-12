@@ -8,38 +8,27 @@
 }
 
 .profile-image {
-    width: 40px;
-    height: 40px;
+    width: 135px;
+    height: 135px;
     margin-top: 20px;
 }
 
-.profile-form {
-    display: flex;
-    flex-direction: column;
+.profile-name {
+    font-size: 2.5rem;
 }
 
-.profile-form label {
-    margin-top: 0.8em;
-    font-size: 0.9rem;
+.profile-email {
+    font-size: 1rem;
 }
 
-.profile-form input {
-    padding: 0.2rem;
-    margin-top: 0.2em;
-    border: 1px solid #4e4545ba;
-    border-radius: 3px;
-}
-
-.profile-btn {
-    margin: 1em;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #4e4545ba;
-}
-
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 420px) {
     .profile-container {
         width: 220px;
-        margin-left: 90px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .profile-container {
+        width: 270px;
     }
 }

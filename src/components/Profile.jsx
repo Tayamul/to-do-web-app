@@ -4,7 +4,7 @@ import "./profile.css";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
-  
+  console.log(currentUser);
   return (
     <section className="profile-container">
       <img
@@ -12,18 +12,8 @@ const Profile = () => {
         src={currentUser.photoURL}
         alt="display avatar"
       ></img>
-      <div>
-          <p style={{textAlign:"center"}}>{currentUser.displayName}</p>
-        <form className="profile-form">
-          <label>Current Password</label>
-          <input type='password' />
-          <label>New Password</label>
-          <input type='password' />
-          <label>Confirm Password</label>
-          <input type='password' />
-          <button className="profile-btn">Change password</button>
-        </form>
-      </div>
+          <p className="profile-name">{currentUser.displayName}</p>
+          <p className="profile-email">{currentUser.email}</p>
     </section>
   );
 };
