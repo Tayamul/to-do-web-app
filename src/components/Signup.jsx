@@ -12,30 +12,34 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const paperStyle = { width: 240, margin: "120px auto 0 70px", padding: "35px 20px" };
+  const paperStyle = {
+    width: 265,
+    margin: "120px auto",
+    padding: "35px 20px",
+  };
   const textStyle = { mt: 2 };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [passwordVisible, setPasswordVisible] = useState(false)
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false)
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   const togglePassword = () => {
-    setPasswordVisible(!passwordVisible)
-  }
+    setPasswordVisible(!passwordVisible);
+  };
 
   const toggleConfirmPassword = () => {
-    setConfirmPasswordVisible(!confirmPasswordVisible)
-  }
+    setConfirmPasswordVisible(!confirmPasswordVisible);
+  };
 
   const signup = async (e) => {
     e.preventDefault();
@@ -49,28 +53,28 @@ const Signup = () => {
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const userId = userCredential.user.uid
+      .then((userCredential) => {
+        const userId = userCredential.user.uid;
 
-      setDoc(doc(db, 'users', username.toLowerCase()), {
-        UserId: userId
+        setDoc(doc(db, "users", username.toLowerCase()), {
+          UserId: userId,
+        });
+
+        updateProfile(auth.currentUser, {
+          displayName: username,
+          photoURL: `https://api.multiavatar.com/Binx${username}.svg`,
+        });
+
+        setDoc(doc(db, `users-data`, userId), {
+          Username: username,
+          Email: email,
+          UserId: userId,
+        });
+
+        alert("Sign up successful!");
+        navigate("/");
       })
-
-      updateProfile(auth.currentUser, {
-        displayName: username,
-        photoURL: `https://api.multiavatar.com/Binx${username}.svg`
-      })
-
-      setDoc(doc(db, `users-data`, userId), {
-        Username: username,
-        Email: email,
-        UserId: userId
-      })
-
-      alert('Sign up successful!')
-      navigate('/')
-    })
-    .catch(err => alert('Email already exists!'))
+      .catch((err) => alert("Email already exists!"));
 
     // try {
     //   const userCredential = await createUserWithEmailAndPassword(
@@ -108,7 +112,10 @@ const Signup = () => {
 
   return (
     <Grid>
-      <Paper elevation={10} sx={paperStyle}>
+      <Paper
+        elevation={10}
+        sx={paperStyle}
+      >
         <Grid align="center">
           <Avatar />
           <Typography variant="h5">Sign up!</Typography>
@@ -149,11 +156,19 @@ const Signup = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton aria-label='toggle password' edge="end" onClick={togglePassword}>
-                      {passwordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
+                    <IconButton
+                      aria-label="toggle password"
+                      edge="end"
+                      onClick={togglePassword}
+                    >
+                      {passwordVisible ? (
+                        <VisibilityOffOutlinedIcon />
+                      ) : (
+                        <VisibilityOutlinedIcon />
+                      )}
                     </IconButton>
                   </InputAdornment>
-                )
+                ),
               }}
             />
             <TextField
@@ -169,23 +184,45 @@ const Signup = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton aria-label='toggle confirm-password' edge="end" onClick={toggleConfirmPassword}>
-                      {confirmPasswordVisible ? <VisibilityOffOutlinedIcon/> : <VisibilityOutlinedIcon/>}
+                    <IconButton
+                      aria-label="toggle confirm-password"
+                      edge="end"
+                      onClick={toggleConfirmPassword}
+                    >
+                      {confirmPasswordVisible ? (
+                        <VisibilityOffOutlinedIcon />
+                      ) : (
+                        <VisibilityOutlinedIcon />
+                      )}
                     </IconButton>
                   </InputAdornment>
-                )
+                ),
               }}
             />
-            {password === confirmPassword ?  <Button variant="contained" sx={textStyle} fullWidth type="submit">
-              Sign up
-            </Button> :  <Button variant="contained" sx={textStyle} fullWidth type="submit" disabled>
-              Sign up
-            </Button>}
-           
+            {password === confirmPassword ? (
+              <Button
+                variant="contained"
+                sx={textStyle}
+                fullWidth
+                type="submit"
+              >
+                Sign up
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                sx={textStyle}
+                fullWidth
+                type="submit"
+                disabled
+              >
+                Sign up
+              </Button>
+            )}
           </form>
-          <Typography variant='caption' sx={{pt:10}}>
-                    Already have an account? <Link to='/login'>Log in</Link>
-                </Typography>
+          <Typography variant="caption" sx={{ pt: 10 }}>
+            Already have an account? <Link to="/login">Log in</Link>
+          </Typography>
         </Grid>
       </Paper>
     </Grid>
