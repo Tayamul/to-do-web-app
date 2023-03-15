@@ -95,7 +95,7 @@ export default function Sidebar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            To do Web-app
+            Task Manager
           </Typography>
         </Toolbar>
       </AppBar>
