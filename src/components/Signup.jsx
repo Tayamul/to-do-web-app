@@ -48,74 +48,46 @@ const Signup = () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      alert("Username already taken!");
+      alert("Username already taken! Try another one.");
       return;
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const userId = userCredential.user.uid;
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const userId = userCredential.user.uid;
 
+      await Promise.all([
         setDoc(doc(db, "users", username.toLowerCase()), {
           UserId: userId,
-        });
-
+        }),
         updateProfile(auth.currentUser, {
           displayName: username,
           photoURL: `https://api.multiavatar.com/Binx${username}.svg`,
-        });
-
-        setDoc(doc(db, `users-data`, userId), {
+        }),
+        setDoc(doc(db, "users-data", userId), {
           Username: username,
           Email: email,
           UserId: userId,
-        });
-
-        alert("Sign up successful!");
-        navigate("/");
-      })
-      .catch((err) => alert("Email already exists!"));
-
-    // try {
-    //   const userCredential = await createUserWithEmailAndPassword(
-    //     auth,
-    //     email,
-    //     password
-    //   );
-    //   const userId = userCredential.user.uid;
-
-    //   await Promise.all([
-    //     setDoc(doc(db, "users", username.toLowerCase()), {
-    //       UserId: userId,
-    //     }),
-    //     updateProfile(auth.currentUser, {
-    //       displayName: username,
-    //       photoURL: `https://api.multiavatar.com/Binx${username}.svg`
-    //     }),
-    //     setDoc(doc(db, "users-data", userId), {
-    //       Username: username,
-    //       Email: email,
-    //       UserId: userId,
-    //     }),
-
-    //   ]);
-    //   alert("Sign up successful");
-    // } catch (err) {
-    //   alert("Email already exists!");
-    // }
-
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+        }),
+      ]);
+      alert("Sign up successful");
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      navigate("/");
+    } catch (err) {
+      alert("Email already exists!");
+    }
   };
 
   return (
     <Grid>
-      <Paper
-        elevation={10}
-        sx={paperStyle}
-      >
+      <Paper elevation={10} sx={paperStyle}>
         <Grid align="center">
           <Avatar />
           <Typography variant="h5">Sign up!</Typography>
