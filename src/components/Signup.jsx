@@ -15,6 +15,7 @@ import {
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { Link, useNavigate } from "react-router-dom";
+import PasswordStrengthIndicator from './PasswordStrengthIndicator'
 
 const Signup = () => {
   const paperStyle = {
