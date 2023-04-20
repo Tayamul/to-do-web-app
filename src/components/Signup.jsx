@@ -60,7 +60,7 @@ const Signup = () => {
     setPasswordValidity({
       minChar: password.length >= 8 ? true : false,
       number: isNumberRegx.test(password) ? true : false,
-      sepcialChar: specialCharacterRegx.test(password) ? true : false
+      specialChar: specialCharacterRegx.test(password) ? true : false,
     })
   }
 
@@ -148,6 +148,7 @@ const Signup = () => {
               required
               value={password}
               onChange={(e) => onChangePassword(e.target.value)}
+              onFocus={() => setPasswordFocused(true)}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -166,6 +167,9 @@ const Signup = () => {
                 ),
               }}
             />
+            {passwordFoucsed && (
+              <PasswordStrengthIndicator validity={passwordValidity} />
+            )}
             <TextField
               label="Confirm Password"
               id="confirmPassword"
@@ -194,7 +198,10 @@ const Signup = () => {
                 ),
               }}
             />
-            {password === confirmPassword ? (
+            {password === confirmPassword && 
+            passwordValidity.minChar === true &&
+            passwordValidity.number === true &&
+            passwordValidity.specialChar === true ? (
               <Button
                 variant="contained"
                 sx={textStyle}
