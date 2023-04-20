@@ -16,13 +16,14 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordStrengthIndicator from './PasswordStrengthIndicator'
+import './passwordStrengthIndicator.css'
 
 const isNumberRegx = /\d/;
 const specialCharacterRegx = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
 const Signup = () => {
   const paperStyle = {
-    width: 265,
+    width: 300,
     margin: "120px auto",
     padding: "35px 20px",
   };
@@ -109,6 +110,7 @@ const Signup = () => {
   };
 
   return (
+    <div className="signup-container">
     <Grid>
       <Paper elevation={10} sx={paperStyle}>
         <Grid align="center">
@@ -238,6 +240,7 @@ const Signup = () => {
         </Grid>
       </Paper>
     </Grid>
+    </div>
   );
 };
 
