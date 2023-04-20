@@ -235,7 +235,7 @@ const Signup = () => {
             )}
           </form>
           <Typography variant="caption" sx={{ pt: 10 }}>
-            Already have an account? <Link to="/login">Log in</Link>
+            Already have an account? <Link to="/login" style={{color: "#1976d2", textDecoration:"none", fontWeight:"bold"}}>Log in</Link>
           </Typography>
         </Grid>
       </Paper>

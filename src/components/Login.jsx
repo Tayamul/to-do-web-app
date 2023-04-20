@@ -50,7 +50,7 @@ const Login = () => {
                     Log in
                 </Typography>
                 <Typography variant='caption'>
-                    Don't have an account? <Link to='/signup'>Sign up</Link>
+                    Don't have an account? <Link to='/signup' style={{color: "#1976d2", textDecoration:"none", fontWeight:"bold"}}>Sign up</Link>
                 </Typography>
                 <form>
                     <TextField
