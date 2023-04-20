@@ -120,6 +120,7 @@ const Signup = () => {
               label="Username"
               id="username"
               type="text"
+              color= {username.length > 0 && "success"}
               sx={textStyle}
               fullWidth
               autoComplete="off"
@@ -131,6 +132,7 @@ const Signup = () => {
               label="Email"
               id="email"
               type="email"
+              color={email.length > 10 && "success"}
               sx={textStyle}
               fullWidth
               autoComplete="off"
@@ -142,6 +144,13 @@ const Signup = () => {
               label="Password"
               id="password"
               type={passwordVisible ? "text" : "password"}
+              color={
+                passwordValidity.minChar === true &&
+                passwordValidity.number === true &&
+                passwordValidity.specialChar === true
+                  ? "success"
+                  : "error"
+              }
               sx={textStyle}
               fullWidth
               autoComplete="off"
@@ -174,6 +183,7 @@ const Signup = () => {
               label="Confirm Password"
               id="confirmPassword"
               type={confirmPasswordVisible ? "text" : "password"}
+              color={password === confirmPassword ? "success" : "error"}
               sx={textStyle}
               fullWidth
               autoComplete="off"
