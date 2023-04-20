@@ -34,7 +34,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-
+  // toggling password visibility
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
@@ -46,9 +46,8 @@ const Signup = () => {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-
+  // password validation
   const[passwordFoucsed, setPasswordFocused] = useState(false);
-
   const [passwordValidity, setPasswordValidity] = useState({
     minChar: null,
     number: null,
