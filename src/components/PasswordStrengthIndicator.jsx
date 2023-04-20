@@ -1,6 +1,6 @@
 import './passwordStrengthIndicator.css'
 
-const PasswordStrengthIndicator = ({validate: {minChar, number, specialChar}}) => {
+const PasswordStrengthIndicator = ({validity: {minChar, number, specialChar}}) => {
     return (
         <div className='password-text'>
             <p className='text-dark'>Password must contain:</p>
