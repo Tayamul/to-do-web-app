@@ -51,6 +51,15 @@ const Signup = () => {
     specialChar: null
   })
 
+  const onChangePassword = (password) => {
+    setPassword(password)
+
+    setPasswordValidity({
+      minChar: password.length >= 8 ? true : false,
+      number: isNumberRegx.test(password) ? true : false,
+      sepcialChar: specialCharacterRegx.test(password) ? true : false
+    })
+  }
 
   const signup = async (e) => {
     e.preventDefault();
@@ -135,7 +144,7 @@ const Signup = () => {
               autoComplete="off"
               required
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => onChangePassword(e.target.value)}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
