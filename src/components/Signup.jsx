@@ -17,6 +17,9 @@ import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined
 import { Link, useNavigate } from "react-router-dom";
 import PasswordStrengthIndicator from './PasswordStrengthIndicator'
 
+const isNumberRegx = /\d/;
+const specialCharacterRegx = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
 const Signup = () => {
   const paperStyle = {
     width: 265,
