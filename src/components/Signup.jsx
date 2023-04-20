@@ -45,6 +45,13 @@ const Signup = () => {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
+  const [passwordValidity, setPasswordValidity] = useState({
+    minChar: null,
+    number: null,
+    specialChar: null
+  })
+
+
   const signup = async (e) => {
     e.preventDefault();
 
