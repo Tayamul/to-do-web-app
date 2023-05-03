@@ -10,6 +10,7 @@ const LandingPage = () => {
       <div className="home-container">
         <div className="hero-content">
           <h1>Optimise your daily workflow</h1>
+          <p>Improve productivity with our intuitive interface for daily planning</p>
         </div>
         <div className="hero-image">
 
