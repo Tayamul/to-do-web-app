@@ -7,6 +7,23 @@
     gap: 2.5rem;
 }
 
+.hero-content {
+    max-width: 30rem;
+}
+
+.hero-content > h1 {
+    font-size: 3rem;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.hero-content > p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
 .hero-image {
     width: 30rem;
     height: auto;
