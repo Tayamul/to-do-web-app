@@ -1,9 +1,14 @@
 .home-container {
-    margin: 120px auto;
+    margin: 180px auto;
     width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
 }
 
 .hero-image {
     width: 30rem;
     height: auto;
+    border-radius: 1rem;
 }
