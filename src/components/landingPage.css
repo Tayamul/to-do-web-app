@@ -36,5 +36,26 @@
 @media (max-width: 990px) {
     .home-container {
         flex-direction: column;
+        width: 90%;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 450px) {
+    .home-container {
+        margin: 100px auto;
+    }
+
+    .hero-content > h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content > p {
+        font-size: 1.2rem;
+    }
+
+    .hero-image {
+        width: 20rem;
     }
 }
