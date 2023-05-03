@@ -2,6 +2,7 @@
 // import { Container } from "@mui/system";
 import React from "react";
 import "./landingPage.css";
+import notes from '../assets/notes.jpg'
 
 const LandingPage = () => {
   const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
@@ -12,8 +13,8 @@ const LandingPage = () => {
           <h1>Optimise your daily workflow</h1>
           <p>Improve productivity with our intuitive interface for daily planning</p>
         </div>
-        <div className="hero-image">
-
+        <div>
+          <img src={notes} alt='An impression of a user writing down tasks' className="hero-image"/>
         </div>
       </div>
     </section>
