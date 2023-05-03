@@ -7,7 +7,14 @@ const LandingPage = () => {
   const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
   return (
     <section id='home'>
-      
+      <div className="home-container">
+        <div className="hero-content">
+
+        </div>
+        <div className="hero-image">
+
+        </div>
+      </div>
     </section>
   );
 };
