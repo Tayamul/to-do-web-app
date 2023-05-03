@@ -9,7 +9,7 @@ const LandingPage = () => {
     <section id='home'>
       <div className="home-container">
         <div className="hero-content">
-
+          <h1>Optimise your daily workflow</h1>
         </div>
         <div className="hero-image">
 
