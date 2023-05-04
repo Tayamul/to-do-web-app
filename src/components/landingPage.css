@@ -26,6 +26,24 @@
     font-family: Alegreya;
 }
 
+.cta {
+    padding: 0.75rem 1.1rem;
+    background: transparent;
+    border: 1px solid #1976d2;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #1976d2;
+}
+
+.cta-2 {
+    padding: 0.75rem 1.1rem;
+    background-color: #1976d2;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+}
+
 .hero-image {
     width: 30rem;
     height: auto;
