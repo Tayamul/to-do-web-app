@@ -5,7 +5,7 @@ import "./landingPage.css";
 import notes from '../assets/notes.jpg'
 
 const LandingPage = () => {
-  const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
+  // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
   return (
     <section id='home'>
       <div className="home-container">

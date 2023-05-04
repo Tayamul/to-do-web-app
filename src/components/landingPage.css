@@ -35,20 +35,36 @@
 
 .cta {
     padding: 0.75rem 1.1rem;
-    background: transparent;
-    border: 1px solid #1976d2;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    color: #1976d2;
-}
-
-.cta-2 {
-    padding: 0.75rem 1.1rem;
     background-color: #1976d2;
     border: transparent;
     border-radius: 5px;
     font-size: 1.2rem;
     color: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.cta:hover {
+    background-color: goldenrod;
+    color: #fff;
+}
+
+
+.cta-2 {
+    padding: 0.75rem 1.1rem;
+    background: transparent;
+    border: 1px solid #1976d2;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #1976d2;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.cta-2:hover {
+    background: transparent;
+    border: 1px solid goldenrod;
+    color: goldenrod;
 }
 
 .hero-image {
