@@ -12,8 +12,10 @@ const LandingPage = () => {
         <div className="hero-content">
           <h1>Optimise your daily workflow</h1>
           <p>Improve productivity with our intuitive interface for daily planning</p>
+          <div className="cta-btn">
           <button className="cta">Sign up</button>
           <button className="cta-2">Guest login</button>
+          </div>
         </div>
         <div>
           <img src={notes} alt='An impression of a user writing down tasks' className="hero-image"/>
