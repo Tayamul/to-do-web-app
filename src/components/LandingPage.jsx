@@ -3,6 +3,7 @@
 import React from "react";
 import "./landingPage.css";
 import notes from '../assets/notes.jpg'
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
@@ -13,7 +14,7 @@ const LandingPage = () => {
           <h1>Optimise your daily workflow</h1>
           <p>Improve productivity with our intuitive interface for daily planning</p>
           <div className="cta-btn">
-          <button className="cta">Sign up</button>
+          <Link to='/signup'><button className="cta">Sign up</button></Link>
           <button className="cta-2">Guest login</button>
           </div>
         </div>
