@@ -43,7 +43,7 @@
 }
 
 .todo-completed {
-    background-color: red;
+    background-color: white;
     margin: 10px 0;
 
     display: flex;
@@ -64,4 +64,21 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.delete-btn {
+    width: 35px;
+    height: 40px;
+    border: 1px solid rgb(254, 82, 82);
+    background-color: rgb(243, 249, 255);
+    color: rgb(254, 82, 82);
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+}
+
+.delete-btn:hover {
+    background-color: rgb(254, 82, 82);
+    border: transparent;
+    color: #fff;
 }
