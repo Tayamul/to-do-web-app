@@ -107,7 +107,7 @@ const Todo = () => {
           </li>
         ))}
       </ul>
-      <p>{todos.length < 1 ? 'Feeling lazy today?' : `You have ${todos.length} tasks to do`}</p>
+      <p className="todo-length">{todos.length < 1 ? 'Feeling lazy today?' : `You have ${todos.length} tasks to do`}</p>
     </div>
   );
 };
