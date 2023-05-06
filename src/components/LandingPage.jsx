@@ -4,6 +4,7 @@ import React from "react";
 import "./landingPage.css";
 import notes from '../assets/notes.jpg'
 import { Link } from "react-router-dom";
+import { signInAnonymously } from 'firebase/auth'
 
 const LandingPage = () => {
   // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
