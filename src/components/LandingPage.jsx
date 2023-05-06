@@ -9,6 +9,11 @@ import { auth } from "../firebaseConfig";
 
 const LandingPage = () => {
   // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
+
+  const guestLogin = () => {
+    
+  }
+
   return (
     <section id="home">
       <div className="home-container">
@@ -21,7 +26,7 @@ const LandingPage = () => {
             <Link to="/signup">
               <button className="cta">Sign up</button>
             </Link>
-            <button className="cta-2">Guest login</button>
+            <button className="cta-2" onClick={guestLogin}>Guest login</button>
           </div>
         </div>
         <div>
