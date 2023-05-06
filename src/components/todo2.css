@@ -3,7 +3,7 @@
     width: 30rem;
     border: 1px solid #1976d2;
     border-radius: 0.5rem;
-    padding: 40px;
+    padding: 30px 25px;
 }
 
 .todo-container > h3 {
@@ -17,6 +17,11 @@
     display: flex;
     align-items: flex-end;
     gap: 5px;
+    
+}
+
+.todo-form-text {
+    font-family: Merriweather Sans;
 }
 
 .todo-btn {
@@ -27,7 +32,7 @@
     background-color: rgb(243, 249, 255);
     color: #1976d2;
     cursor: pointer;
-    transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
 }
 
 .todo-btn:hover {
@@ -37,27 +42,28 @@
 }
 
 .todo-container > ul {
-    border: 1px solid black;
-    background-color: goldenrod;
+    /* border: 1px solid black;
+    background-color: goldenrod; */
     margin: 20px 0;
+}
+
+.todo-li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #f6f6fa;
+    border-radius: 0.5rem;
 }
 
 .todo-completed {
     background-color: white;
     margin: 10px 0;
-
     display: flex;
     justify-content: space-between;
     gap: 10px;
-}
-
-.todo-li {
-    background-color: red;
-    margin: 10px 0;
-
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    background-color: #e4f3fa;
+    border-radius: 0.5rem;
 }
 
 .todo-row {
@@ -66,7 +72,7 @@
     align-items: center;
 }
 
-.delete-btn {
+/* .delete-btn {
     width: 35px;
     height: 40px;
     border: 1px solid rgb(254, 82, 82);
@@ -74,11 +80,38 @@
     color: rgb(254, 82, 82);
     border-radius: 0.3rem;
     cursor: pointer;
-    transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
+} */
+
+.delete-btn {
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
 }
 
 .delete-btn:hover {
-    background-color: rgb(254, 82, 82);
+    /* background-color: rgb(254, 82, 82); */
     border: transparent;
     color: #fff;
+}
+
+.todo-row > input {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: Merriweather Sans;
+    
+}
+
+.text-completed {
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: line-through;
+    font-family: Merriweather Sans;
+    font-weight: 300;
 }

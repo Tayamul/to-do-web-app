@@ -76,6 +76,7 @@ const Todo = () => {
             setInput(e.target.value);
           }}
           autoComplete="off"
+          className="todo-form-text"
         />
         <button type="sumbit" className="todo-btn" variant="outlined">
           <AddIcon size={30} />
@@ -101,7 +102,7 @@ const Todo = () => {
               </p>
             </div>
             <button className="delete-btn" onClick={() => {deleteList(todo.id)}}>
-              <DeleteOutlineIcon />
+              <DeleteOutlineIcon color="info" sx={{backgroundColor: "#fff", "&:hover": {color: "rgb(254, 82, 82)"}}} />
             </button>
           </li>
         ))}
