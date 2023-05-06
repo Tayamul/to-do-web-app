@@ -27,5 +27,11 @@
     background-color: rgb(243, 249, 255);
     color: #1976d2;
     cursor: pointer;
-    transform: all 0.4s ease;
+    transition: all 0.4s ease-in;
+}
+
+.todo-btn:hover {
+    background-color: #1976d2;
+    border: transparent;
+    color: white;
 }
