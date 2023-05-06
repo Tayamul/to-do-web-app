@@ -11,11 +11,11 @@ const LandingPage = () => {
   // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
 
   const navigate = useNavigate();
-  
+
   const guestLogin = () => {
     signInAnonymously(auth)
     .then(() => {
-
+      navigate('/')
     })
     .catch((err) => {
       alert('Could not sign in!')
