@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./todo.css";
+import "./todo2.css";
 import { db } from "../firebaseConfig";
 import {
   addDoc,
