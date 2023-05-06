@@ -3,7 +3,7 @@
 import React from "react";
 import "./landingPage.css";
 import notes from "../assets/notes.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInAnonymously } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
@@ -13,7 +13,7 @@ const LandingPage = () => {
   const guestLogin = () => {
     signInAnonymously(auth)
     .then(() => {
-      
+
     })
     .catch((err) => {
       alert('Could not sign in!')
