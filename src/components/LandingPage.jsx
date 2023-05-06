@@ -11,7 +11,13 @@ const LandingPage = () => {
   // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
 
   const guestLogin = () => {
-    
+    signInAnonymously(auth)
+    .then(() => {
+      
+    })
+    .catch((err) => {
+      alert('Could not sign in!')
+    })
   }
 
   return (
