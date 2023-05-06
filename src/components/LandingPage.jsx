@@ -15,9 +15,11 @@ const LandingPage = () => {
   const guestLogin = () => {
     signInAnonymously(auth)
     .then(() => {
-      navigate('/')
+      alert('Successfully logged in as a Guest!')
+      navigate('/tasks')
     })
     .catch((err) => {
+      console.log(err)
       alert('Could not sign in!')
     })
   }
