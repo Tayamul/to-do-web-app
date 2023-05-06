@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./todo.css";
+import "./todo2.css";
 import { db } from "../firebaseConfig";
 import {
   addDoc,
@@ -76,6 +76,7 @@ const Todo = () => {
             setInput(e.target.value);
           }}
           autoComplete="off"
+          className="todo-form-text"
         />
         <button type="sumbit" className="todo-btn" variant="outlined">
           <AddIcon size={30} />
@@ -101,12 +102,12 @@ const Todo = () => {
               </p>
             </div>
             <button className="delete-btn" onClick={() => {deleteList(todo.id)}}>
-              <DeleteOutlineIcon />
+              <DeleteOutlineIcon color="info" sx={{backgroundColor: "#fff", "&:hover": {color: "rgb(254, 82, 82)"}}} />
             </button>
           </li>
         ))}
       </ul>
-      <p>{todos.length < 1 ? 'Feeling lazy today?' : `You have ${todos.length} tasks to do`}</p>
+      <p className="todo-length">{todos.length < 1 ? 'Feeling lazy today?' : `You have ${todos.length} tasks to do`}</p>
     </div>
   );
 };

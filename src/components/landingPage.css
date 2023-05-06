@@ -15,7 +15,6 @@
     font-size: 3.5rem;
     text-align: center;
     line-height: 1.2;
-    font-family: Alegreya;
     font-style: italic;
 }
 
@@ -23,7 +22,6 @@
     font-size: 1.5rem;
     text-align: center;
     margin-top: 15px;
-    font-family: Alegreya;
 }
 
 .cta-btn {
@@ -41,7 +39,7 @@
     font-size: 1.2rem;
     color: #fff;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.4s ease-in;
 }
 
 .cta:hover {
@@ -58,7 +56,7 @@
     font-size: 1.2rem;
     color: #1976d2;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.4s ease-in;
 }
 
 .cta-2:hover {
