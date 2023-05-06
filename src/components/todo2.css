@@ -4,6 +4,7 @@
     border: 1px solid #1976d2;
     border-radius: 0.5rem;
     padding: 30px 25px;
+    box-shadow: 0 0 3px black;
 }
 
 .todo-container > h3 {
@@ -117,4 +118,26 @@
 
 .todo-length {
     text-align: center;
+}
+
+@media (max-width: 450px) {
+    .todo-container {
+        width: 20rem;
+    }
+
+    .todo-container > h3 {
+        font-size: 2rem;
+    }
+
+    .text-completed {
+        font-size: 1.1rem;
+    }
+
+    .text {
+        font-size: 1.1rem;
+    }
+
+    .todo-length {
+        font-size: 0.9rem;
+    }
 }
