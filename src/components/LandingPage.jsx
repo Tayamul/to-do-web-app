@@ -10,6 +10,8 @@ import { auth } from "../firebaseConfig";
 const LandingPage = () => {
   // const paperStyle = { padding: "20px 20px", margin: "30px 30px" };
 
+  const navigate = useNavigate();
+  
   const guestLogin = () => {
     signInAnonymously(auth)
     .then(() => {
